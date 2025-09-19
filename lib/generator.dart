@@ -6,6 +6,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:path/path.dart';
+import 'package:web3dart/crypto.dart';
 import 'package:web3dart/web3dart.dart';
 
 import 'documentation.dart';
@@ -66,7 +67,7 @@ class ContractGenerator implements Builder {
 ${library.accept(emitter)}''';
 
     try {
-      return DartFormatter().format(source);
+      return DartFormatter(languageVersion: DartFormatter.latestLanguageVersion).format(source);
     } on Object {
       // The source couldn't be parsed. Emit it anyways to make debugging the
       // generator easier, but this is likely our fault.
