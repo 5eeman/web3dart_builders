@@ -2,7 +2,6 @@ import 'package:code_builder/code_builder.dart' hide FunctionType;
 import 'package:web3dart/web3dart.dart';
 
 const web3package = 'package:web3dart/web3dart.dart';
-const walletPackage = 'package:wallet/wallet.dart';
 
 TypeReference referType(String name, [String? uri]) {
   return TypeReference((b) => b
@@ -19,7 +18,7 @@ final dynamicType = referType('dynamic', 'dart:core');
 final listType = listify(dynamicType);
 
 final web3Client = referType('Web3Client', web3package);
-final ethereumAddress = referType('EthereumAddress', walletPackage);
+final ethereumAddress = referType('EthereumAddress', web3package);
 final blockNum = referType('BlockNum', web3package);
 final credentials = referType('Credentials', web3package);
 final contractAbi = referType('ContractAbi', web3package);
